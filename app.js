@@ -82,7 +82,7 @@ let employee1 = {
   console.log(employee4.theSalary())
   console.log(employee4);
   
-  const employee5 = {
+  let employee5 = {
     fullName: "Rana Saleh",
     department: "Development",
     level: "Junior",
@@ -102,6 +102,26 @@ let employee1 = {
   console.log(employee5.theSalary())
   console.log(employee5);
 
+  let employee6 = {
+    fullName: "Hadi Ahmad",
+    department: "Marketing",
+    level: "sunior",
+    imageURL: ".jpg",
+     employeeID: function () {
+      return Math.floor(Math.random()*100) + 300;
+    },
+    theSalary: function () {
+      const minSalary = 1500;
+      const maxSalary = 2000;
+      const randomSalary = Math.floor(Math.random() * (maxSalary - minSalary + 1)) + minSalary+100;
+      const netSalary =  Math.trunc(randomSalary - (randomSalary * 7.5) / 100);
+      return netSalary;
+    },
+  };
+  console.log(employee6.employeeID())
+  console.log(employee6.theSalary())
+  console.log(employee6);
+
   document.getElementById("javadesign").innerHTML = `Employee name : ${employee1.fullName} 
   <br>Employee salary :${employee1.theSalary()}`;
   
@@ -113,3 +133,6 @@ let employee1 = {
   <br>Employee salary :${employee4.theSalary()}`;
   document.getElementById("javadesign4").innerHTML = `Employee name : ${employee5.fullName} 
   <br>Employee salary :${employee5.theSalary()}`;
+  
+  document.getElementById("javadesign5").innerHTML = `Employee name : ${employee6.fullName} 
+  <br>Employee salary :${employee6.theSalary()}`;
