@@ -16,17 +16,35 @@ Employees.prototype.employeeID = function() {
      return Math.floor(Math.random()*100) + 300;
 }
 Employees.prototype.theSalary = function () {
-      const minSalary = 1500;
-      const maxSalary = 2000;
-      const randomSalary = Math.ceil(Math.random() * (maxSalary - minSalary + 1)) + minSalary+100;
-      const netSalary = Math.trunc(randomSalary - (randomSalary * 7.5) / 100);
+  var minSalary, maxSalary;
+  switch (this.level) {
+    case "Senior":
+      minSalary = 1500;
+      maxSalary = 2000;
+      break;
+    case "Mid-Senior":
+      minSalary = 1000;
+      maxSalary = 1500;
+      break;
+    case "Junior":
+      minSalary = 500;
+      maxSalary = 1000;
+      break;
+    default:
+      minSalary = 0;
+      maxSalary = 0;
+  }
+      var randomSalary = Math.floor(Math.random() * (maxSalary - minSalary + 1)) + minSalary;
+      var netSalary = Math.trunc(randomSalary - (randomSalary * 7.5) / 100);
+     
       return netSalary;
+    
 
 }
 let employee1 =new Employees ("Ghazi Samer","Administration","Senior","./png");
 let employee2 =new Employees ("Lana Ali","Marketing","Mid-Senior","./png");
 let employee3 =new Employees ("Tamara Ayoub","Development","Senior","./png");
-let employee4 =new Employees ("Safi Walid","Finance","Juniorr","./png");
+let employee4 =new Employees ("Safi Walid","Finance","Junior","./png");
 let employee5 =new Employees ("Rana Saleh","Development","Junior","./png");
 let employee6 =new Employees ("Hadi Ahmad","Marketing","Senior","./png");
 console.log(employee6);
