@@ -85,6 +85,13 @@ for (let i = 0; i < information.length; i++) {
       divE.style.border="2px solid black";
     
 
+// for (let i = 0; i < information.length; i++) {
+//   document.write("Employee name: " + information[i].fullName + "<br>");
+//   document.write("Department: " + information[i].department + "<br>");
+//   document.write("Employee salary: " + information[i].theSalary() + "<br>")
+  
+//  } 
+
 
   
  } 
