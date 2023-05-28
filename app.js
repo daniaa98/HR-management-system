@@ -7,6 +7,8 @@ function Employees (fullName,department,level,photo) {
   this.department = department;
   this.level = level;
   this.photo = photo;
+  this.employeeID=this.employeeID();
+  this.theSalary=this.theSalary();
   information.push(this);
   
 }
@@ -41,18 +43,49 @@ Employees.prototype.theSalary = function () {
     
 
 }
-let employee1 =new Employees ("Ghazi Samer","Administration","Senior","./png");
-let employee2 =new Employees ("Lana Ali","Marketing","Mid-Senior","./png");
-let employee3 =new Employees ("Tamara Ayoub","Development","Senior","./png");
-let employee4 =new Employees ("Safi Walid","Finance","Junior","./png");
-let employee5 =new Employees ("Rana Saleh","Development","Junior","./png");
-let employee6 =new Employees ("Hadi Ahmad","Marketing","Senior","./png");
+let employee1 =new Employees ("Ghazi Samer","Administration","Senior","./assets/Ghazi.jpg");
+let employee2 =new Employees ("Lana Ali","Marketing","Mid-Senior","./assets/Lana.jpg");
+let employee3 =new Employees ("Tamara Ayoub","Development","Senior","./assets/Tamara.jpg");
+let employee4 =new Employees ("Safi Walid","Finance","Junior","./assets/Safi.jpg");
+let employee5 =new Employees ("Rana Saleh","Development","Junior","./assets/Rana.jpg");
+let employee6 =new Employees ("Hadi Ahmad","Marketing","Senior","./assets/Hadi.jpg");
 console.log(employee6);
+
+
 for (let i = 0; i < information.length; i++) {
 
-  document.write(` Employee name: ${information[i].fullName} <br> `);
-  document.write(` Department:${information[i].department}  <br> `);
-  document.write(`Employee salary: ${information[i].theSalary()} <br><br> `)
+  let divE=document.createElement("div")
+  let body=document.getElementsByTagName("body")[0];
+  body.appendChild(divE);
+  
+  let employeeImage=document.createElement("img");
+  employeeImage.src=information[i].photo;
+  employeeImage.alt=information[i].fullName;
+  divE.appendChild(employeeImage);
+  
+  let employeeName=document.createElement("h5");
+      employeeName.textContent=` Name: ${information[i].fullName}`;
+      divE.appendChild(employeeName);
+  
+  let employeedepartment=document.createElement("h5");
+      employeedepartment.textContent=` department: ${information[i].department}`;
+      divE.appendChild(employeedepartment);
+  
+  let employeelevel=document.createElement("h5");
+      employeelevel.textContent=` level: ${information[i].level}`;
+      divE.appendChild(employeelevel);
+  
+  let employeeid=document.createElement("h5");
+      employeeid.textContent=` ID: ${information[i].employeeID}`;
+      divE.appendChild(employeeid);
+  
+  let employeesalary=document.createElement("h5");
+      employeesalary.textContent=` salary: ${information[i].theSalary}`;
+      divE.appendChild(employeesalary);
+      divE.style.border="2px solid black";
+    
+
+
   
  } 
 
